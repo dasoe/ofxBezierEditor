@@ -41,6 +41,9 @@ class ofxBezierEditor{
         virtual void mouseMoved(ofMouseEventArgs &args);
         virtual void mouseDragged(ofMouseEventArgs &args);
         virtual void mousePressed(ofMouseEventArgs &args);
+        virtual void mouseScrolled(ofMouseEventArgs &args);
+        virtual void mouseEntered(ofMouseEventArgs &args);
+        virtual void mouseExited(ofMouseEventArgs &args);
         virtual void mouseReleased(ofMouseEventArgs &args);
         virtual void keyPressed(ofKeyEventArgs &args);
         virtual void keyReleased(ofKeyEventArgs &args);

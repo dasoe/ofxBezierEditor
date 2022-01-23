@@ -585,6 +585,17 @@ void ofxBezierEditor::mouseReleased(ofMouseEventArgs &args){
 }
 
 //--------------------------------------------------------------
+void ofxBezierEditor::mouseScrolled(ofMouseEventArgs &args){
+}
+//--------------------------------------------------------------
+void ofxBezierEditor::mouseEntered(ofMouseEventArgs &args){
+}
+//--------------------------------------------------------------
+void ofxBezierEditor::mouseExited(ofMouseEventArgs &args){
+}
+
+
+//--------------------------------------------------------------
 void ofxBezierEditor::keyPressed(ofKeyEventArgs &args){
     if(args.key == 'e'){
         beditBezier = !beditBezier;
