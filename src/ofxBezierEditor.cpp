@@ -29,7 +29,7 @@ ofxBezierEditor::~ofxBezierEditor(){
 
 ofxBezierEditor::ofxBezierEditor(){
     setRadiusVertex(6);
-    setRadiusControlPoints(4);
+    setRadiusControlPoints(5);
 
     currentPointToMove = 0;
     lastVertexSelected = 0;
@@ -241,9 +241,9 @@ void ofxBezierEditor::drawHelp(){
     if(curveVertices.size() > 0){
         ofPushMatrix();
         ofTranslate(translateX, translateY);
-        ofSetLineWidth(1);
+        ofSetLineWidth(2);
         ofNoFill();
-        ofSetColor(0,0,0,40);
+        ofSetColor(125, 125, 125, 200);
         for (int i = 0; i < curveVertices.size(); i++){
             ofLine(curveVertices.at(i).x, curveVertices.at(i).y, controlPoint2.at(i).x, controlPoint2.at(i).y);
         }
@@ -258,15 +258,16 @@ void ofxBezierEditor::drawHelp(){
 //            ofLine(curveVertices.at(i).x, curveVertices.at(i).y, curveVertices.at(i-1).x, curveVertices.at(i-1).y);
 //        }
 
+        // Color of Vertices
         for (int i = 0; i < curveVertices.size(); i++){
-            ofSetColor(0,0,0,40);
+            ofSetColor(20, 190, 100, 225);
             ofNoFill();
             if(curveVertices.at(i).bOver == true){
-                ofSetColor(0,0,0,80);
+                ofSetColor(10, 60, 255, 225);
                 ofFill();
             }
             if(curveVertices.at(i).bBeingDragged == true){
-                ofSetColor(2,77,77,200);
+                ofSetColor(20, 190, 100, 225);
                 ofFill();
             }
             ofCircle(curveVertices.at(i).x, curveVertices.at(i).y, radiusVertex);
@@ -281,11 +282,13 @@ void ofxBezierEditor::drawHelp(){
             ofDrawBitmapString("v_" + ofToString(i), curveVertices.at(i).x+3, curveVertices.at(i).y+3);
         }
 
+        // bezier points first side
+
         for (int i = 0; i < controlPoint1.size(); i++){
-            ofSetColor(100,53,68,40);
-            ofNoFill();
+            ofSetColor(190, 50, 100, 225);
+            ofFill();
             if(controlPoint1.at(i).bOver == true){
-                ofSetColor(100,53,68,80);
+                ofSetColor(10,60,255,225);
                 ofFill();
             }
             if(controlPoint1.at(i).bBeingDragged == true){
@@ -293,15 +296,16 @@ void ofxBezierEditor::drawHelp(){
                 ofFill();
             }
             ofCircle(controlPoint1.at(i).x, controlPoint1.at(i).y, radiusControlPoints);
-            ofSetColor(100,53,68,80);
+            ofSetColor(190, 50, 100, 225);
             ofDrawBitmapString("cp1_" + ofToString(i), controlPoint1.at(i).x+3, controlPoint1.at(i).y+3);
         }
 
+        // bezier points other side
         for (int i = 0; i < controlPoint2.size(); i++){
-            ofSetColor(100,53,68,40);
-            ofNoFill();
+            ofSetColor(190, 150, 50, 225);
+            ofFill();
             if(controlPoint2.at(i).bOver == true){
-                ofSetColor(100,53,68,80);
+                ofSetColor(10, 60, 255, 225);
                 ofFill();
             }
             if(controlPoint2.at(i).bBeingDragged == true){
@@ -309,7 +313,7 @@ void ofxBezierEditor::drawHelp(){
                 ofFill();
             }
             ofCircle(controlPoint2.at(i).x, controlPoint2.at(i).y, radiusControlPoints);
-            ofSetColor(100,53,68,80);
+            ofSetColor(190, 150, 50, 225);
             ofDrawBitmapString("cp2_" + ofToString(i), controlPoint2.at(i).x+3, controlPoint2.at(i).y+3);
         }
 
@@ -353,7 +357,7 @@ void ofxBezierEditor::drawHelp(){
         drawWithNormals(polyLineFromPoints);
     } // end of if(curveVertices.size() > 0){
 
-    ofSetColor(0,0,0,80);
+    ofSetColor(0,0,0,200);
 	ofDrawBitmapString("VERTEX: " + ofToString(curveVertices.size()) + "PRESS e to EDIT the BEZIER: " + ofToString(beditBezier), 20,20);
 	ofDrawBitmapString("mouse left button to add a point at the end", 20,40);
 	ofDrawBitmapString("backspace to delete last point added", 20,60);

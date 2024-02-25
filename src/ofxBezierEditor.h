@@ -82,6 +82,8 @@ class ofxBezierEditor{
 
 		void setReactToMouseAndKeyEvents(bool b);
 
+		bool getEditBezier() { return beditBezier; };
+
 	private:
         int currentPointToMove;
 		int lastVertexSelected;
